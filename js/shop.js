@@ -76,32 +76,25 @@ var total = 0;
 
 // Exercise 1
 function buy(id) {
-
   // 1. Loop for to the array products to get the item to add to cart
 
   const productAdd = products.find((product) => product.id === id);
 
   const productExistCart = cart.find((product) => product.id === id);
 
-  let productOutOfStock = null
+  let productOutOfStock = null;
 
   // 2. Add found product to the cart array
   if (productAdd && productExistCart) {
-  
     productAdd.quantity++;
     console.log(cart);
-
   } else if (productAdd && !productExistCart) {
-
     productAdd.quantity = 1;
     cart.push(productAdd);
     console.log(cart);
-
   } else {
-
     productOutOfStock = true;
   }
-
 }
 
 // Exercise 2
@@ -112,11 +105,27 @@ function cleanCart() {
 // Exercise 3
 function calculateTotal() {
   // Calculate total price of the cart using the "cartList" array
+  let sum = 0;
+
+  for (let i = 0; i < cart.length; i++) {
+    sum += cart[i].price;
+  }
+
+  return sum;
 }
 
 // Exercise 4
-function applyPromotionsCart() {
+function applyPromotionsCart(cart) {
   // Apply promotions to each item in the array "cart"
+  for (let i = 0; i < cart.length; i++) {
+
+    const item = cart[i];
+
+    if (item.offer && item.quantity >= item.offer.number) {
+
+      item.subtotalWithDiscount = (item.price - (item.offer.percent * item.price) / 100) * item.quantity;
+    }
+  }
 }
 
 // Exercise 5
