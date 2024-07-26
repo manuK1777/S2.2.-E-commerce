@@ -78,52 +78,65 @@ var total = 0;
 function buy(id) {
   // 1. Loop for to the array products to get the item to add to cart
 
-  const productAdd = products.find((product) => product.id === id);
+  const productAdd = products.find((item) => item.id === id);
 
-  const productExistCart = cart.find((product) => product.id === id);
+  const productExistCart = cart.find((item) => item.id === id);
 
   let productOutOfStock = null;
 
   // 2. Add found product to the cart array
   if (productAdd && productExistCart) {
     productAdd.quantity++;
-    console.log(cart);
+   
   } else if (productAdd && !productExistCart) {
     productAdd.quantity = 1;
     cart.push(productAdd);
-    console.log(cart);
+
   } else {
     productOutOfStock = true;
   }
+
+  cart.forEach(element => {
+    console.log(element);
+  });
+
+  applyPromotionsCart();
+  calculateTotal();
+  printCart();
 }
 
 // Exercise 2
 function cleanCart() {
   cart.length = 0;
+  total = 0;
+  printCart();
 }
 
 // Exercise 3
 function calculateTotal() {
-  // Calculate total price of the cart using the "cartList" array
-  let sum = 0;
+  // Calculate total price of the cart
+  let totalWithDiscount = 0;
 
   for (let i = 0; i < cart.length; i++) {
-    sum += cart[i].price;
+    const item = cart[i];
+    totalWithDiscount += item.subtotalWithDiscount ? item.subtotalWithDiscount : item.price * item.quantity;
   }
 
-  return sum;
+  total = totalWithDiscount.toFixed(2);
+
 }
 
 // Exercise 4
-function applyPromotionsCart(cart) {
+function applyPromotionsCart() {
   // Apply promotions to each item in the array "cart"
   for (let i = 0; i < cart.length; i++) {
-
     const item = cart[i];
 
     if (item.offer && item.quantity >= item.offer.number) {
-
-      item.subtotalWithDiscount = (item.price - (item.offer.percent * item.price) / 100) * item.quantity;
+      item.subtotalWithDiscount =
+        (item.price - (item.offer.percent * item.price) / 100) * item.quantity;
+    } else {
+      item.subtotalWithDiscount = 0;
     }
   }
 }
@@ -131,6 +144,41 @@ function applyPromotionsCart(cart) {
 // Exercise 5
 function printCart() {
   // Fill the shopping cart modal manipulating the shopping cart dom
+
+  // Get DOM refrerences
+  const cartList = document.getElementById("cart_list");
+  const showTotal = document.getElementById("total_price");
+  const countProduct = document.getElementById("count_product");
+
+  // Clean cart
+  cartList.innerHTML = "";
+
+  // Variables for HTML table
+  let cartTableHTML = "";
+  let productCount = 0;
+
+  cart.forEach((item) => {
+    // Build HTML table    
+    cartTableHTML += `
+            <tr>
+                <th scope="row">${item.name}</th>
+                <td>$${item.price.toFixed(2)}</td>
+                <td>${item.quantity}</td>
+                <td>${item.subtotalWithDiscount.toFixed(2)}</td>
+          
+            </tr>
+        `;
+
+    // Product counter
+    productCount += item.quantity;
+  });
+
+  // Insert HTML table
+  cartList.innerHTML = cartTableHTML;
+
+  // Show final price and product count in the shopping cart DOM
+  showTotal.innerHTML = total;
+  countProduct.innerHTML = productCount;
 }
 
 // ** Nivell II **
