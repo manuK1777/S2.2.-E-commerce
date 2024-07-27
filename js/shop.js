@@ -87,18 +87,14 @@ function buy(id) {
   // 2. Add found product to the cart array
   if (productAdd && productExistCart) {
     productAdd.quantity++;
-   
   } else if (productAdd && !productExistCart) {
     productAdd.quantity = 1;
     cart.push(productAdd);
-
   } else {
     productOutOfStock = true;
   }
 
-  cart.forEach(element => {
-    console.log(element);
-  });
+  console.log(cart);
 
   applyPromotionsCart();
   calculateTotal();
@@ -119,11 +115,12 @@ function calculateTotal() {
 
   for (let i = 0; i < cart.length; i++) {
     const item = cart[i];
-    totalWithDiscount += item.subtotalWithDiscount ? item.subtotalWithDiscount : item.price * item.quantity;
+    totalWithDiscount += item.subtotalWithDiscount
+      ? item.subtotalWithDiscount
+      : item.price * item.quantity;
   }
 
   total = totalWithDiscount.toFixed(2);
-
 }
 
 // Exercise 4
@@ -158,14 +155,16 @@ function printCart() {
   let productCount = 0;
 
   cart.forEach((item) => {
-    // Build HTML table    
+    // Build HTML table
     cartTableHTML += `
             <tr>
                 <th scope="row">${item.name}</th>
                 <td>$${item.price.toFixed(2)}</td>
                 <td>${item.quantity}</td>
                 <td>${item.subtotalWithDiscount.toFixed(2)}</td>
-          
+                <td><button class="btn btn-danger" onclick="removeFromCart(${
+                  item.id
+                })" style="margin-right: 30px">Remove</button></td>
             </tr>
         `;
 
@@ -184,7 +183,21 @@ function printCart() {
 // ** Nivell II **
 
 // Exercise 7
-function removeFromCart(id) {}
+function removeFromCart(id) {
+
+  itemToDelete = id;
+  let foundItem = cart.find((item) => item.id === itemToDelete);
+
+  if (foundItem.quantity > 1) {
+    foundItem.quantity--;
+  } else {
+    cart.splice(foundItem, 1);
+  }
+
+  applyPromotionsCart();
+  calculateTotal();
+  printCart();
+}
 
 function open_modal() {
   printCart();
