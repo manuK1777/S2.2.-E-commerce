@@ -58,3 +58,8 @@ function validate() {
     }, 100);
   }
 }
+
+function refresh() {
+  // Redirect to the main page
+  window.location.href = "index.html";
+}
