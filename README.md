@@ -13,9 +13,9 @@ You will be in charge of setting up an initial demo version of the application f
 - Javascript
 - HTML5
 - SCSS
-- [Bootstrap] (https://getbootstrap.com/)- version 5
+- Bootstrap version 5
 
 
 ## Instructions
 
-Download https://github.com/manuK1777/S2.2.-E-commerce.git, open html, jsand css files in your IDE
+Download https://github.com/manuK1777/S2.2.-E-commerce.git, run the index.html in a web browser.
