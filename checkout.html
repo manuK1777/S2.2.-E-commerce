@@ -4,8 +4,8 @@
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-	<meta name="description" content="" />
-	<meta name="author" content="" />
+	<meta name="description" content="S2.2. E-commerce" />
+	<meta name="author" content="Manuel Krapovickas" />
 	<title>Checkout</title>
 	<!-- Favicon-->
 	<link rel="icon" type="image/x-icon" href="images/favicon.ico" />
@@ -16,6 +16,9 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
 		integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
 		crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+	<!-- Core theme CSS (includes Bootstrap)-->
+	<link href="css/styles.css" rel="stylesheet">
 
 </head>
 
@@ -132,6 +135,38 @@
 				</div>
 			</div>
 		</form>
+
+	<!-- Modal checkout prompt ok-->
+	<div class="modal fade" id="customAlertModal" tabindex="-1" aria-labelledby="customAlertLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="customAlertLabel">Thank You for Your Purchase!</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<p class="custom-text-modal-checkout">
+						<strong>Order Confirmation:</strong> Your order has been successfully placed. 
+						You will receive an email confirmation shortly with your order details.
+					</p>
+					<br>
+					<p class="custom-text-modal-checkout">
+						<strong>Delivery Information:</strong> Your items will be shipped within the next
+						3 to 5 business days. You can track your order status through your
+						orders account or via the tracking link provided in the confirmation email.
+					</p>
+					<br>
+                    <p>
+                    	<strong>Customer Support:</strong> If you have any questions or need further assistance, 
+						please contact our customer support at "support@example.com".
+                    </p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	</div>
 

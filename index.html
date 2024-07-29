@@ -4,8 +4,8 @@
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-	<meta name="description" content="" />
-	<meta name="author" content="" />
+	<meta name="description" content="S2.2. E-commerce" />
+	<meta name="author" content="Manuel Krapovickas" />
 	<title>ShopNow</title>
 	<!-- Favicon-->
 	<link rel="icon" type="image/x-icon" href="images/favicon.ico" />
@@ -16,6 +16,9 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
 		integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
 		crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+	<!-- Core theme CSS (includes Bootstrap)-->
+	<link href="css/styles.css" rel="stylesheet">
 </head>
 
 <body data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="50">
@@ -75,14 +78,14 @@
 			<div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
 				<div class="col mb-5">
 					<div class="card h-100">
-						<img class="card-img-top" src="./images/product.svg" alt="..." />
+						<img class="card-img-top" src="./images/cooking_oil_bottle.png" alt="..." />
 						<div class="card-body p-4">
 							<div class="text-center">
 								<h5 class="fw-bolder">Cooking Oil</h5>
 								$10.5
 							</div>
 						</div>
-						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent card-footer-grocery">
 							<div class="text-center"><button type="button" onclick="buy(1)"
 									class="btn btn-outline-dark">Add to cart</button></div>
 						</div>
@@ -90,14 +93,14 @@
 				</div>
 				<div class="col mb-5">
 					<div class="card h-100">
-						<img class="card-img-top" src="./images/product.svg" alt="..." />
+						<img class="card-img-top" src="./images/pasta_package.png" alt="..." />
 						<div class="card-body p-4">
 							<div class="text-center">
 								<h5 class="fw-bolder">Pasta</h5>
 								$6.25
 							</div>
 						</div>
-						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent card-footer-grocery">
 							<div class="text-center"><button type="button" onclick="buy(2)"
 									class="btn btn-outline-dark">Add to cart</button></div>
 						</div>
@@ -105,14 +108,14 @@
 				</div>
 				<div class="col mb-5">
 					<div class="card h-100">
-						<img class="card-img-top" src="./images/product.svg" alt="..." />
+						<img class="card-img-top" src="./images/cupcake_mix.png" alt="..." />
 						<div class="card-body p-4">
 							<div class="text-center">
 								<h5 class="fw-bolder">Instant cupcake mixture</h5>
 								$5
 							</div>
 						</div>
-						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent card-footer-grocery">
 							<div class="text-center"><button type="button" onclick="buy(3)"
 									class="btn btn-outline-dark">Add to cart</button></div>
 						</div>
@@ -128,7 +131,7 @@
 			<div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
 				<div class="col mb-5">
 					<div class="card h-100">
-						<img class="card-img-top" src="./images/product.svg" alt="..." />
+						<img class="card-img-top" src="./images/all-in-1.webp" alt="..." />
 						<div class="card-body p-4">
 							<div class="text-center">
 								<h5 class="fw-bolder">All-in-1</h5>
@@ -143,7 +146,7 @@
 				</div>
 				<div class="col mb-5">
 					<div class="card h-100">
-						<img class="card-img-top" src="./images/product.svg" alt="..." />
+						<img class="card-img-top" src="./images/zero-makeUp-kit.webp" alt="..." />
 						<div class="card-body p-4">
 							<div class="text-center">
 								<h5 class="fw-bolder">Zero makeup kit</h5>
@@ -158,7 +161,7 @@
 				</div>
 				<div class="col mb-5">
 					<div class="card h-100">
-						<img class="card-img-top" src="./images/product.svg" alt="..." />
+						<img class="card-img-top" src="./images/lip-tints.webp" alt="..." />
 						<div class="card-body p-4">
 							<div class="text-center">
 								<h5 class="fw-bolder">Lip tints</h5>
@@ -181,7 +184,7 @@
 			<div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
 				<div class="col mb-5">
 					<div class="card h-100">
-						<img class="card-img-top" src="./images/product.svg" alt="..." />
+						<img class="card-img-top" src="./images/lawn-dress-2.webp" alt="..." />
 						<div class="card-body p-4">
 							<div class="text-center">
 								<h5 class="fw-bolder">Lawn dress</h5>
@@ -196,7 +199,7 @@
 				</div>
 				<div class="col mb-5">
 					<div class="card h-100">
-						<img class="card-img-top" src="./images/product.svg" alt="..." />
+						<img class="card-img-top" src="./images/lawn-chiffon-dress.webp" alt="..." />
 						<div class="card-body p-4">
 							<div class="text-center">
 								<h5 class="fw-bolder">Lawn-chiffon combo</h5>
@@ -211,7 +214,7 @@
 				</div>
 				<div class="col mb-5">
 					<div class="card h-100">
-						<img class="card-img-top" src="./images/product.svg" alt="..." />
+						<img class="card-img-top" src="./images/toddler-frock.webp" alt="..." />
 						<div class="card-body p-4">
 							<div class="text-center">
 								<h5 class="fw-bolder">Toddler Frock</h5>
@@ -258,8 +261,8 @@
 							<tr>
 								<th scope="row"></th>
 								<td></td>
-								<td</td>
-								<td></td>
+								<td< /td>
+									<td></td>
 							</tr>
 							<tr>
 								<th scope="row"></th>
@@ -270,8 +273,8 @@
 							<tr>
 								<th scope="row"></th>
 								<td></td>
-								<td</td>
-								<td></td>
+								<td< /td>
+									<td></td>
 							</tr>
 						</tbody>
 					</table>
