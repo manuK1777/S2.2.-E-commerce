@@ -133,7 +133,7 @@ function applyPromotionsCart() {
       item.subtotalWithDiscount =
         (item.price - (item.offer.percent * item.price) / 100) * item.quantity;
     } else {
-      item.subtotalWithDiscount = 0;
+      item.subtotalWithDiscount = item.price * item.quantity;
     }
   }
 }
